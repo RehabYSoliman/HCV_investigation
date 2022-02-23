@@ -1,0 +1,26 @@
+dataSource=['EgyptianNotEgypt.gb','EgyptNotEgyptian.gb']
+countP=0
+countG=0
+exc=['POLY','polyprotein','C','protein F']
+temp=[]
+for x in dataSource:
+    filh=open(x)
+    for line in filh:
+        line=line.lstrip()
+        line=line.rstrip()
+        if line.startswith('/product='):
+            countP+=1
+            temp.append(line[10:-1])
+        elif line.startswith('/gene='):
+            countG+=1
+            temp.append(line[7:-1])
+print(countP,countG)
+
+//New cell
+gene=[]
+for t in temp:
+    if t not in exc:
+        gene.append(temp)
+        
+//New cell
+print(gene)
